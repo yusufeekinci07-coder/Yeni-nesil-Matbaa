@@ -1,34 +1,183 @@
-<h2>Online Sipariş</h2>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeni Nesil Matbaa</title>
 
-<form onsubmit="gonder(event)">
-  <input type="text" id="isim" placeholder="Ad Soyad" required><br><br>
-  <input type="text" id="urun" placeholder="Ürün (Afiş, Kartvizit vs.)" required><br><br>
-  <input type="number" id="adet" placeholder="Adet" required><br><br>
-  <textarea id="not" placeholder="Not (isteğe bağlı)"></textarea><br><br>
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color: white;
+  overflow-x: hidden;
+}
 
-  <button type="submit">Sipariş Gönder</button>
+/* ÜST BAR */
+header {
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {text-shadow: 0 0 10px cyan;}
+  to {text-shadow: 0 0 30px #00ffcc;}
+}
+
+/* BUTON */
+.btn {
+  padding: 12px 25px;
+  background: cyan;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* KARTLAR */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(0,255,255,0.1);
+}
+
+/* FORM */
+input, textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
+form {
+  text-align: center;
+  padding: 40px;
+}
+
+/* PARÇACIK */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: cyan;
+  border-radius: 50%;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  from {transform: translateY(-100px);}
+  to {transform: translateY(100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<header>🔥 YENİ NESİL MATBAA 🔥</header>
+
+<div class="hero">
+  <h1>ÇALIŞIYOR GARDAŞ 🚀</h1>
+  <p>En hızlı online sipariş sistemi</p>
+  <button class="btn" onclick="scrollToForm()">Sipariş Ver</button>
+</div>
+
+<div class="container">
+  <div class="card">
+    <h3>Afiş Baskı</h3>
+    <p>Kaliteli + hızlı teslimat</p>
+  </div>
+
+  <div class="card">
+    <h3>Kartvizit</h3>
+    <p>Profesyonel tasarımlar</p>
+  </div>
+
+  <div class="card">
+    <h3>Broşür</h3>
+    <p>Modern baskı çözümleri</p>
+  </div>
+</div>
+
+<form id="siparis">
+  <h2>Sipariş Ver</h2>
+  <input id="isim" placeholder="Ad Soyad"><br>
+  <input id="urun" placeholder="Ürün"><br>
+  <input id="adet" placeholder="Adet"><br>
+  <textarea id="not" placeholder="Not"></textarea><br>
+  <button class="btn" type="button" onclick="gonder()">WhatsApp Sipariş</button>
 </form>
 
 <script>
-function gonder(e){
-  e.preventDefault();
-
+function gonder(){
   let isim = document.getElementById("isim").value;
   let urun = document.getElementById("urun").value;
   let adet = document.getElementById("adet").value;
   let not = document.getElementById("not").value;
 
-  let mesaj = 
-`Yeni Sipariş:
+  let msg = `🔥 YENİ SİPARİŞ 🔥
 İsim: ${isim}
 Ürün: ${urun}
 Adet: ${adet}
 Not: ${not}`;
 
-  let tel = "905426829717"; // BURAYA BABA PATRON NUMARASI
+  let tel = "90XXXXXXXXXX"; // BURAYA NUMARA (0 YOK)
 
-  let url = "https://wa.me/" + tel + "?text=" + encodeURIComponent(mesaj);
-
-  window.open(url, "_blank");
+  window.open("https://wa.me/" + tel + "?text=" + encodeURIComponent(msg));
 }
+
+function scrollToForm(){
+  document.getElementById("siparis").scrollIntoView({behavior:"smooth"});
+}
+
+/* PARÇACIK EFEKT */
+setInterval(()=>{
+  let p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(p);
+
+  setTimeout(()=>p.remove(),5000);
+},200);
 </script>
+
+</body>
+</html>
