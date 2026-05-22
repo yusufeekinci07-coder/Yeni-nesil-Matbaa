@@ -1,1 +1,34 @@
-<h1>ÇALIŞIYOR GARDAŞ</h1>
+<h2>Online Sipariş</h2>
+
+<form onsubmit="gonder(event)">
+  <input type="text" id="isim" placeholder="Ad Soyad" required><br><br>
+  <input type="text" id="urun" placeholder="Ürün (Afiş, Kartvizit vs.)" required><br><br>
+  <input type="number" id="adet" placeholder="Adet" required><br><br>
+  <textarea id="not" placeholder="Not (isteğe bağlı)"></textarea><br><br>
+
+  <button type="submit">Sipariş Gönder</button>
+</form>
+
+<script>
+function gonder(e){
+  e.preventDefault();
+
+  let isim = document.getElementById("isim").value;
+  let urun = document.getElementById("urun").value;
+  let adet = document.getElementById("adet").value;
+  let not = document.getElementById("not").value;
+
+  let mesaj = 
+`Yeni Sipariş:
+İsim: ${isim}
+Ürün: ${urun}
+Adet: ${adet}
+Not: ${not}`;
+
+  let tel = "90XXXXXXXXXX"; // BURAYA BABA PATRON NUMARASI
+
+  let url = "https://wa.me/" + tel + "?text=" + encodeURIComponent(mesaj);
+
+  window.open(url, "_blank");
+}
+</script>
