@@ -3,180 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yeni Nesil Matbaa</title>
+<title>Yeni Nesil Matbaa ∞</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: linear-gradient(135deg,#0f172a,#1e293b);
-  color: white;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:Arial;
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:white;
+  overflow-x:hidden;
 }
 
-/* ÜST BAR */
-header {
-  padding: 20px;
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  background: rgba(255,255,255,0.05);
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 25px;
+  background:rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
+  position:sticky;
+  top:0;
+}
+
+.logo{
+  font-weight:bold;
+  color:#00ffff;
+  letter-spacing:2px;
 }
 
 /* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
+.hero{
+  text-align:center;
+  padding:80px 20px;
 }
 
-.hero h1 {
-  font-size: 50px;
+.hero h1{
+  font-size:55px;
   animation: glow 2s infinite alternate;
 }
 
-@keyframes glow {
-  from {text-shadow: 0 0 10px cyan;}
-  to {text-shadow: 0 0 30px #00ffcc;}
+@keyframes glow{
+  from{text-shadow:0 0 10px cyan;}
+  to{text-shadow:0 0 40px #00ffff;}
 }
 
-/* BUTON */
-.btn {
-  padding: 12px 25px;
-  background: cyan;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  background:#00ffff;
+  transition:0.3s;
 }
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px cyan;
+
+button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #00ffff;
 }
 
 /* KARTLAR */
-.container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px;
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:40px;
 }
 
-.card {
-  background: rgba(255,255,255,0.08);
-  padding: 20px;
-  border-radius: 15px;
-  width: 250px;
-  transition: 0.3s;
+.card{
+  width:220px;
+  padding:20px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.06);
+  transition:0.3s;
 }
-.card:hover {
-  transform: translateY(-10px);
-  background: rgba(0,255,255,0.1);
+
+.card:hover{
+  transform:translateY(-10px) rotate(1deg);
+  background:rgba(0,255,255,0.1);
 }
 
 /* FORM */
-input, textarea {
-  width: 90%;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 8px;
-  border: none;
+form{
+  text-align:center;
+  padding:40px;
 }
 
-form {
-  text-align: center;
-  padding: 40px;
+input,textarea{
+  width:80%;
+  padding:10px;
+  margin:5px;
+  border-radius:8px;
+  border:none;
 }
 
-/* PARÇACIK */
-.particle {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: cyan;
-  border-radius: 50%;
-  animation: fall 5s linear infinite;
+/* MODAL */
+#popup{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#00ffcc;
+  color:black;
+  padding:10px 20px;
+  border-radius:10px;
+  display:none;
+  font-weight:bold;
 }
 
-@keyframes fall {
-  from {transform: translateY(-100px);}
-  to {transform: translateY(100vh);}
+/* FLOAT EFFECT */
+.float{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#00ffff;
+  border-radius:50%;
+  animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-50px);}
+  to{transform:translateY(100vh);}
+}
+
+/* DARK FLASH EFFECT */
+.flash{
+  animation:flash 0.3s;
+}
+
+@keyframes flash{
+  0%{background:white;}
+  100%{background:transparent;}
 }
 </style>
 </head>
 
 <body>
 
-<header>🔥 YENİ NESİL MATBAA 🔥</header>
+<nav>
+  <div class="logo">MATBAA ∞</div>
+  <div>🔥 ONLINE SİPARİŞ</div>
+</nav>
 
 <div class="hero">
   <h1>ÇALIŞIYOR GARDAŞ 🚀</h1>
-  <p>En hızlı online sipariş sistemi</p>
-  <button class="btn" onclick="scrollToForm()">Sipariş Ver</button>
+  <p>Ultra hızlı sipariş sistemi</p>
+  <button onclick="scrollForm()">SİPARİŞ VER</button>
 </div>
 
-<div class="container">
-  <div class="card">
-    <h3>Afiş Baskı</h3>
-    <p>Kaliteli + hızlı teslimat</p>
-  </div>
-
-  <div class="card">
-    <h3>Kartvizit</h3>
-    <p>Profesyonel tasarımlar</p>
-  </div>
-
-  <div class="card">
-    <h3>Broşür</h3>
-    <p>Modern baskı çözümleri</p>
-  </div>
+<div class="cards">
+  <div class="card">Afiş Baskı ⚡</div>
+  <div class="card">Kartvizit 💳</div>
+  <div class="card">Broşür 📄</div>
 </div>
 
-<form id="siparis">
-  <h2>Sipariş Ver</h2>
+<form id="form">
+  <h2>SİPARİŞ PANELİ</h2>
   <input id="isim" placeholder="Ad Soyad"><br>
   <input id="urun" placeholder="Ürün"><br>
   <input id="adet" placeholder="Adet"><br>
   <textarea id="not" placeholder="Not"></textarea><br>
-  <button class="btn" type="button" onclick="gonder()">WhatsApp Sipariş</button>
+  <button type="button" onclick="gonder()">WhatsApp Gönder</button>
 </form>
+
+<div id="popup">SİPARİŞ GÖNDERİLDİ 🚀</div>
 
 <script>
 function gonder(){
-  let isim = document.getElementById("isim").value;
-  let urun = document.getElementById("urun").value;
-  let adet = document.getElementById("adet").value;
-  let not = document.getElementById("not").value;
 
-  let msg = `🔥 YENİ SİPARİŞ 🔥
+  let isim=document.getElementById("isim").value;
+  let urun=document.getElementById("urun").value;
+  let adet=document.getElementById("adet").value;
+  let not=document.getElementById("not").value;
+
+  let mesaj=`🔥 YENİ SİPARİŞ
 İsim: ${isim}
 Ürün: ${urun}
 Adet: ${adet}
 Not: ${not}`;
 
-  let tel = "90XXXXXXXXXX"; // BURAYA NUMARA (0 YOK)
+  let tel="90XXXXXXXXXX"; // NUMARA (0 YOK)
 
-  window.open("https://wa.me/" + tel + "?text=" + encodeURIComponent(msg));
+  window.open("https://wa.me/"+tel+"?text="+encodeURIComponent(mesaj));
+
+  // popup
+  let p=document.getElementById("popup");
+  p.style.display="block";
+  setTimeout(()=>p.style.display="none",2000);
+
+  // flash efekt
+  document.body.classList.add("flash");
+  setTimeout(()=>document.body.classList.remove("flash"),300);
 }
 
-function scrollToForm(){
-  document.getElementById("siparis").scrollIntoView({behavior:"smooth"});
+function scrollForm(){
+  document.getElementById("form").scrollIntoView({behavior:"smooth"});
 }
 
-/* PARÇACIK EFEKT */
+/* sonsuz parçacık */
 setInterval(()=>{
-  let p = document.createElement("div");
-  p.className = "particle";
-  p.style.left = Math.random()*100 + "vw";
-  document.body.appendChild(p);
-
-  setTimeout(()=>p.remove(),5000);
-},200);
+  let d=document.createElement("div");
+  d.className="float";
+  d.style.left=Math.random()*100+"vw";
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),6000);
+},150);
 </script>
 
 </body>
